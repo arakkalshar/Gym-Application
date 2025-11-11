@@ -62,7 +62,7 @@ const LandingPage = () => {
       marginBottom: "30px",
     },
     btn: {
-      backgroundColor: "#ffd700",
+      backgroundColor: "#00c3ffff",
       color: "#000",
       padding: "12px 25px",
       textDecoration: "none",
@@ -73,8 +73,8 @@ const LandingPage = () => {
     },
     btnSecondary: {
       backgroundColor: "transparent",
-      border: "2px solid #ffd700",
-      color: "#ffd700",
+      border: "2px solid #00c3ffff",
+      color: "#00c3ffff",
     },
     location: {
       backgroundColor: "#222",
@@ -95,26 +95,25 @@ const LandingPage = () => {
       <header style={styles.header}>
         <img
           src="https://upload.wikimedia.org/wikipedia/en/6/60/Gold%27s_Gym_logo.png"
-          alt="Gold's Gym Logo"
+          alt="Pump It Up Logo"
           style={styles.logo}
         />
         <nav style={styles.nav}>
-          <a href="#" style={styles.navLink}>Find a Gym</a>
           <a href="#" style={styles.navLink}>Overview</a>
           <a href="#" style={styles.navLink}>Amenities</a>
           <a href="#" style={styles.navLink}>Photos</a>
           <a href="#" style={styles.navLink}>FAQ</a>
-          <a href="#" style={styles.navLink}>Shop</a>
+          <a href="#" style={styles.navLink}>Contact</a>
         </nav>
         <div style={styles.buttons}>
-          <button style={{ ...styles.btn, ...styles.btnSecondary }}>Free Pass</button>
-          <button style={styles.btn}>Join Now</button>
+          <button style={{ ...styles.btn, ...styles.btnSecondary }}>Login</button>
+          <button style={styles.btn}>Sign Up</button>
         </div>
       </header>
 
       <section style={styles.hero}>
         <div style={styles.heroContent}>
-          <h1 style={styles.heroTitle}>Gold’s Gym Richmond</h1>
+          <h1 style={styles.heroTitle}>PUMP IT UP</h1>
           <p style={styles.heroText}>
             Transform your body. Empower your mind. Join the community that inspires strength.
           </p>
@@ -126,11 +125,11 @@ const LandingPage = () => {
       </section>
 
       <section style={styles.location}>
-        📍 8904 West Broad Street, Richmond, VA 23294
+        📍 3920 West Broad Street, Richmond, VA 23230
       </section>
 
       <footer style={styles.footer}>
-        © 2025 Gold's Gym Richmond. All rights reserved.
+        © 2025 Pump It Up Richmond. All rights reserved.
       </footer>
     </div>
   );
