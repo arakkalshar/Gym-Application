@@ -3,7 +3,6 @@ import ExerciseList from "./ExerciseList.jsx";
 import ExerciseDetail from "./ExerciseDetail.jsx";
 import "./styles.css";
 
-// REMOVED IMAGE IMPORTS:
 import pushup from "./media/pushup.jpg";
 import squat from "./media/squat.jpg";
 import plank from "./media/plank.jpg";
@@ -15,19 +14,21 @@ export default function App() {
     {
       id: 1,
       name: "Push-Up",
-      // Set media to the direct path (relative to App.jsx -> ../ for parent folder)
-      media: pushup, 
+      type: "photo",
+      media: pushup,
       description: "A basic chest and tricep exercise."
     },
     {
       id: 2,
       name: "Squat",
+      type: "photo",
       media: squat,
       description: "A lower-body movement for legs and glutes."
     },
     {
       id: 3,
       name: "Plank",
+      type: "photo",
       media: plank,
       description: "A core exercise for stability."
     }
@@ -36,10 +37,7 @@ export default function App() {
   return (
     <div className="container">
       {!selectedExercise ? (
-        <ExerciseList
-          exercises={exercises}
-          onSelect={setSelectedExercise}
-        />
+        <ExerciseList exercises={exercises} onSelect={setSelectedExercise} />
       ) : (
         <ExerciseDetail
           exercise={selectedExercise}
