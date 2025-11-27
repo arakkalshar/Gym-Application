@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import WorkoutLogUI from "./workout_logui.jsx";  // ⬅ no angle brackets here
+import WorkoutLogUI from "./pages/workout_logui.jsx";  // ⬅ no angle brackets here
 
 function App() {
   return (
