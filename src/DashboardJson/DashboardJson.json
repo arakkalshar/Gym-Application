@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2025-11-01",
+    "exercises": [
+      { "name": "Bench Press", "weight": 135 },
+      { "name": "Squat", "weight": 185 },
+      { "name": "Deadlift", "weight": 210}
+    ]
+  },
+  {
+    "date": "2025-11-03",
+    "exercises": [
+      { "name": "Bench Press", "weight": 145 },
+      { "name": "Squat", "weight": 200 },
+      { "name": "Deadlift", "weight": 225 }
+    ]
+  },
+  {
+    "date": "2025-11-05",
+    "exercises": [
+        {"name": "Bench Press", "weight": 150},
+        {"name": "Squat", "weight": 210 },
+        {"name": "Deadlift", "weight": 235 }
+    ]
+  }
+]
