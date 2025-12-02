@@ -1,17 +1,19 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+
 import LoginPage from "./pages/LoginPage";
+import OwnerHome from "./pages/OwnerHome";
+import ProgressDashboard from "./pages/ProgressDashboard";
 
 export default function App() {
-  return <LoginPage />;
-import './App.css';
-import ProgressDashboard from './pages/ProgressDashboard';
-
-export function App() {
   return (
-    <>
-      <h1>Parcel React App</h1>
-      <p>Edit <code>src/App.tsx</code> to get started!</p>
-      <ProgressDashboard />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<OwnerHome />} />
+        <Route path="/progress" element={<ProgressDashboard />} />
+      </Routes>
+    </Router>
   );
 }

@@ -1,8 +1,11 @@
+// LoginPage.jsx
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -12,79 +15,125 @@ const LoginPage = () => {
       return;
     }
 
-    // Mock navigation for PB1
-    alert("Login successful (mock). PB1 completed!");
+    if (email === "owner@gym.com" && password === "password123") {
+      navigate("/home");
+    } else {
+      alert("Invalid credentials.");
+    }
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.overlay} />
+    <div style={styles.wrapper}> 
 
-      <h1 style={styles.gymName}>Aurelius Performance</h1>
-
-      <div style={styles.card}>
-        <h2 style={styles.title}>Login</h2>
-
-        <form onSubmit={handleLogin} style={styles.form}>
-          <label style={styles.label}>Email</label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            style={styles.input}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <label style={styles.label}>Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            style={styles.input}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <button type="submit" style={styles.button}>Login</button>
-
-          <p style={styles.forgot}>Forgot password?</p>
-        </form>
+      {/* LEFT SIDE WORKOUT IMAGE */}
+      <div style={styles.leftImage}>
+        <div style={styles.imageOverlay} />
+        <h1 style={styles.sideTitle}>TRAIN HARD</h1>
+        <h3 style={styles.sideSubtitle}>Aurelius Performance Gym</h3>
       </div>
+
+      {/* RIGHT SIDE LOGIN CARD */}
+      <div style={styles.rightSide}>
+        <h1 style={styles.gymName}>Aurelius Performance</h1>
+
+        <div style={styles.card}>
+          <h2 style={styles.title}>Login</h2>
+
+          <form onSubmit={handleLogin} style={styles.form}>
+            <label style={styles.label}>Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              style={styles.input}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <label style={styles.label}>Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              style={styles.input}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <button type="submit" style={styles.button}>
+              Login
+            </button>
+
+            <p style={styles.forgot}>Forgot password?</p>
+          </form>
+        </div>
+      </div>
+
     </div>
   );
 };
 
 const styles = {
-  container: {
+  wrapper: {
+    display: "flex",
     height: "100vh",
     width: "100vw",
     backgroundColor: "#000",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
     fontFamily: "'Poppins', sans-serif",
   },
 
-  overlay: {
+  // LEFT IMAGE AREA
+  leftImage: {
+    flex: 1,
+    backgroundImage:
+      "url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    position: "relative",
+  },
+
+  imageOverlay: {
     position: "absolute",
-    width: "100%",
-    height: "100%",
+    inset: 0,
     background:
-      "radial-gradient(circle at top, rgba(255,215,0,0.15), rgba(0,0,0,0.95))",
-    zIndex: 1,
+      "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9))",
+  },
+
+  sideTitle: {
+    position: "absolute",
+    bottom: "150px",
+    left: "40px",
+    color: "gold",
+    fontSize: "3rem",
+    fontWeight: "800",
+    letterSpacing: "3px",
+  },
+
+  sideSubtitle: {
+    position: "absolute",
+    bottom: "120px",
+    left: "40px",
+    color: "rgba(255,255,255,0.8)",
+    fontSize: "1.2rem",
+  },
+
+  // RIGHT LOGIN AREA
+  rightSide: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+    padding: "20px",
   },
 
   gymName: {
     position: "absolute",
     top: "10%",
-    width: "100%",
-    textAlign: "center",
-    fontSize: "3rem",
-    fontWeight: "700",
-    color: "rgba(255, 215, 0, 0.08)",
-    letterSpacing: "3px",
+    fontSize: "2.5rem",
+    fontWeight: 700,
+    color: "rgba(255, 215, 0, 0.3)",
     textTransform: "uppercase",
-    zIndex: 1,
+    letterSpacing: "4px",
   },
 
   card: {
@@ -93,8 +142,8 @@ const styles = {
     padding: "40px",
     borderRadius: "15px",
     border: "1px solid rgba(255,215,0,0.4)",
-    width: "350px",
-    boxShadow: "0 0 20px rgba(255,215,0,0.1)",
+    width: "380px",
+    boxShadow: "0 0 20px rgba(255,215,0,0.15)",
   },
 
   title: {
@@ -102,7 +151,6 @@ const styles = {
     textAlign: "center",
     marginBottom: "20px",
     fontSize: "1.8rem",
-    fontWeight: "600",
   },
 
   form: {
@@ -119,10 +167,9 @@ const styles = {
     padding: "12px",
     marginBottom: "15px",
     borderRadius: "8px",
-    border: "1px solid rgba(255,215,0,0.3)",
+    border: "1px solid rgba(255,215,0,0.4)",
     backgroundColor: "rgba(0,0,0,0.6)",
     color: "white",
-    outline: "none",
   },
 
   button: {
@@ -133,14 +180,12 @@ const styles = {
     border: "none",
     borderRadius: "8px",
     cursor: "pointer",
-    marginTop: "10px",
   },
 
   forgot: {
-    color: "rgba(255,255,255,0.6)",
     textAlign: "center",
     marginTop: "15px",
-    fontSize: "14px",
+    color: "rgba(255,255,255,0.6)",
   },
 };
 
