@@ -5,6 +5,8 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage";
 import OwnerHome from "./pages/OwnerHome";
 import ProgressDashboard from "./pages/ProgressDashboard";
+import WorkoutLog from "./pages/workout_log";
+
 
 export default function App() {
   return (
