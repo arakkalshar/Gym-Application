@@ -5,6 +5,8 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage";
 import OwnerHome from "./pages/OwnerHome";
 import ProgressDashboard from "./pages/ProgressDashboard";
+import WorkoutLog from "./pages/workout_log";
+
 
 export default function App() {
   return (
@@ -13,6 +15,7 @@ export default function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<OwnerHome />} />
         <Route path="/progress" element={<ProgressDashboard />} />
+        <Route path="/workout-log" element={<WorkoutLog />} />
       </Routes>
     </Router>
   );
