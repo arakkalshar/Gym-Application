@@ -15,6 +15,7 @@ export default function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<OwnerHome />} />
         <Route path="/progress" element={<ProgressDashboard />} />
+        <Route path="/workout-log" element={<WorkoutLog />} />
       </Routes>
     </Router>
   );
