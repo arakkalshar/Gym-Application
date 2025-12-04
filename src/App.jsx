@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import OwnerHome from "./pages/OwnerHome";
 import ProgressDashboard from "./pages/ProgressDashboard";
 import WorkoutLog from "./pages/workout_log";
+import HRVRecovery from "./pages/hrv_recovery";
 
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<OwnerHome />} />
         <Route path="/progress" element={<ProgressDashboard />} />
+        <Route path="/hrv-recovery" element={<HRVRecovery />} />
       </Routes>
     </Router>
   );
