@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import OwnerHome from "./pages/OwnerHome";
 import ProgressDashboard from "./pages/ProgressDashboard";
 import WorkoutLog from "./pages/workout_log";
+import GoalSettings from "./pages/GoalSettings"
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/home" element={<OwnerHome />} />
         <Route path="/progress" element={<ProgressDashboard />} />
         <Route path="/workout-log" element={<WorkoutLog />} />
+        <Route path="/goal-settings" element={<GoalSettings />} />
       </Routes>
     </Router>
   );
