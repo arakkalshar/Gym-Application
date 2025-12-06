@@ -1,26 +1,94 @@
 [
   {
-    "date": "2025-11-01",
-    "exercises": [
-      { "name": "Bench Press", "weight": 135 },
-      { "name": "Squat", "weight": 185 },
-      { "name": "Deadlift", "weight": 210}
+    "client_id": "C001",
+    "name": "John Doe",
+    "workouts": [
+      {
+        "date": "2025-11-01",
+        "exercises": [
+          { "name": "Bench Press", "weight": 135 },
+          { "name": "Squat", "weight": 185 },
+          { "name": "Deadlift", "weight": 210 }
+        ]
+      },
+      {
+        "date": "2025-11-03",
+        "exercises": [
+          { "name": "Bench Press", "weight": 140 },
+          { "name": "Squat", "weight": 195 },
+          { "name": "Deadlift", "weight": 220 }
+        ]
+      },
+      {
+        "date": "2025-11-05",
+        "exercises": [
+          { "name": "Bench Press", "weight": 150 },
+          { "name": "Squat", "weight": 205 },
+          { "name": "Deadlift", "weight": 230 }
+        ]
+      }
     ]
   },
+
   {
-    "date": "2025-11-03",
-    "exercises": [
-      { "name": "Bench Press", "weight": 145 },
-      { "name": "Squat", "weight": 200 },
-      { "name": "Deadlift", "weight": 225 }
+    "client_id": "C002",
+    "name": "Joe Shmo",
+    "workouts": [
+      {
+        "date": "2025-11-01",
+        "exercises": [
+          { "name": "Bench Press", "weight": 95 },
+          { "name": "Squat", "weight": 155 },
+          { "name": "Deadlift", "weight": 185 }
+        ]
+      },
+      {
+        "date": "2025-11-03",
+        "exercises": [
+          { "name": "Bench Press", "weight": 100 },
+          { "name": "Squat", "weight": 165 },
+          { "name": "Deadlift", "weight": 195 }
+        ]
+      },
+      {
+        "date": "2025-11-05",
+        "exercises": [
+          { "name": "Bench Press", "weight": 105 },
+          { "name": "Squat", "weight": 175 },
+          { "name": "Deadlift", "weight": 205 }
+        ]
+      }
     ]
   },
+
   {
-    "date": "2025-11-05",
-    "exercises": [
-        {"name": "Bench Press", "weight": 150},
-        {"name": "Squat", "weight": 210 },
-        {"name": "Deadlift", "weight": 235 }
+    "client_id": "C003",
+    "name": "Josephine McJimbo",
+    "workouts": [
+      {
+        "date": "2025-11-01",
+        "exercises": [
+          { "name": "Bench Press", "weight": 165 },
+          { "name": "Squat", "weight": 225 },
+          { "name": "Deadlift", "weight": 275 }
+        ]
+      },
+      {
+        "date": "2025-11-03",
+        "exercises": [
+          { "name": "Bench Press", "weight": 170 },
+          { "name": "Squat", "weight": 235 },
+          { "name": "Deadlift", "weight": 285 }
+        ]
+      },
+      {
+        "date": "2025-11-05",
+        "exercises": [
+          { "name": "Bench Press", "weight": 175 },
+          { "name": "Squat", "weight": 245 },
+          { "name": "Deadlift", "weight": 295 }
+        ]
+      }
     ]
   }
 ]

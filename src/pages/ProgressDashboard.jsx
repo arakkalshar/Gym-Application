@@ -1,6 +1,6 @@
 // dashboard.jsx
 import { useEffect, useState } from "react";
-import { Card, CardContent, Typography, Box } from "@mui/material";
+import { Card, CardContent, Typography, Box, MenuItem, Select } from "@mui/material";
 import {
   BarChart,
   Bar,
@@ -12,30 +12,37 @@ import {
   ResponsiveContainer
 } from "recharts";
 
-// ✅ Correctly import JSON using Parcel's native support
+// Importing multi-client JSON
 import workoutData from "../DashboardJson/DashboardJson.json";
 
 export default function ProgressDashboard() {
-  const [workouts, setWorkouts] = useState([]);
+  const [clients, setClients] = useState([]);
+  const [selectedClientId, setSelectedClientId] = useState(null);
 
   useEffect(() => {
-    // Load JSON directly (no fetch needed)
-    setWorkouts(workoutData);
+    setClients(workoutData);
+
+    // Auto-select first client
+    if (workoutData.length > 0) {
+      setSelectedClientId(workoutData[0].client_id);
+    }
   }, []);
 
-  // If data has not loaded yet
-  if (!workouts || workouts.length === 0) {
+  // Find selected client object
+  const selectedClient = clients.find(c => c.client_id === selectedClientId);
+
+  if (!selectedClient) {
     return (
       <Card sx={{ maxWidth: 900, margin: "2rem auto", boxShadow: 3 }}>
         <CardContent>
-          <Typography variant="h5">Loading workout data...</Typography>
+          <Typography variant="h5">Loading client workout data...</Typography>
         </CardContent>
       </Card>
     );
   }
 
-  // Convert workout array → chart friendly data
-  const chartData = workouts.map(entry => {
+  // Convert client workouts → chart format
+  const chartData = selectedClient.workouts.map(entry => {
     const point = { date: entry.date };
     entry.exercises.forEach(ex => {
       point[ex.name] = ex.weight;
@@ -43,21 +50,43 @@ export default function ProgressDashboard() {
     return point;
   });
 
-  // Get all exercise names dynamically
+  // Get exercise names dynamically
   const allExerciseNames = [
-    ...new Set(workouts.flatMap(w => w.exercises.map(ex => ex.name)))
+    ...new Set(
+      selectedClient.workouts.flatMap(w => w.exercises.map(ex => ex.name))
+    )
   ];
 
-  // Color palette
+  // Bar colors
   const colors = ["#3f51b5", "#f44336", "#4caf50", "#ff9800", "#9c27b0"];
 
   return (
     <Card sx={{ maxWidth: 900, margin: "2rem auto", boxShadow: 3 }}>
       <CardContent>
         <Typography variant="h5" gutterBottom>
-          Client Workout Progress (Multiple Exercises)
+          Client Workout Progress
         </Typography>
 
+        {/* Client Selector */}
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="subtitle1" sx={{ mb: 1 }}>
+            Select Client:
+          </Typography>
+
+          <Select
+            value={selectedClientId}
+            onChange={e => setSelectedClientId(e.target.value)}
+            sx={{ width: 250 }}
+          >
+            {clients.map(client => (
+              <MenuItem key={client.client_id} value={client.client_id}>
+                {client.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </Box>
+
+        {/* Chart */}
         <Box sx={{ height: 400 }}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -76,7 +105,6 @@ export default function ProgressDashboard() {
               <Tooltip />
               <Legend />
 
-              {/* Auto-create bars from JSON keys */}
               {allExerciseNames.map((name, index) => (
                 <Bar
                   key={name}
